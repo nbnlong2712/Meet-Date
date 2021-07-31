@@ -45,7 +45,7 @@ public class MatchUserAdapter extends RecyclerView.Adapter<MatchUserAdapter.MyVi
     public void onBindViewHolder(@NonNull MatchUserAdapter.MyViewHolder holder, int position) {
         Users users = usersList.get(position);
         holder.name.setText(users.getName());
-        holder.profession.setText(users.getBio());
+        holder.profession.setText("Hello em!");
         if (users.getProfileImageUrl() != null) {
             Glide.with(context).load(users.getProfileImageUrl()).into(holder.imageView);
         }

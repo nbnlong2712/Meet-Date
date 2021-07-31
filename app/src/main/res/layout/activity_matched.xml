@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-   * DatingApp
-    * https://github.com/quintuslabs/DatingApp
-    * Created on 25-sept-2018.
-    * Created by : Santosh Kumar Dash:- http://santoshdash.epizy.com
-    -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical">
-
-    <!-- top navigation -->
-    <include layout="@layout/layout_top_navigation_view" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -22,17 +13,46 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:weightSum="6">
 
-            <EditText
-                android:id="@+id/searchBar"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:drawableLeft="@drawable/ic_search"
-                android:drawablePadding="10dp"
-                android:hint="Seearch Here..."
-                android:textSize="18dp" />
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="0.5">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <TextView
+                        android:textSize="22dp"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_5dp"
+                        android:text="Chats" />
+                    <TextView
+                        android:layout_marginStart="240dp"
+                        android:layout_marginBottom="@dimen/_5dp"
+                        android:drawableLeft="@drawable/slider"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/searchBar"
+                    android:layout_width="340dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/search_bar"
+                    android:drawableLeft="@drawable/ic_search"
+                    android:drawablePadding="10dp"
+                    android:hint="Search Here..."
+                    android:textSize="18dp" />
+            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
@@ -43,40 +63,42 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:text="Active"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
+                android:text="New Matches"
+                android:textColor="@color/pink"
+                android:textSize="16sp" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:layout_weight="0.5"
                 android:id="@+id/active_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="10dp">
-
-            </androidx.recyclerview.widget.RecyclerView>
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
-                android:text="Matches"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
+                android:text="Messages"
+                android:textColor="@color/pink"
+                android:textSize="16sp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/matche_recycler_view"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:overScrollMode="never" />
+            <!-- top navigation -->
+            <include layout="@layout/layout_top_navigation_view" />
 
-                android:overScrollMode="never"></androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

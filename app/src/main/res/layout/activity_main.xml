@@ -10,21 +10,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/light_grey"
     android:orientation="vertical">
 
-    <include layout="@layout/layout_top_navigation_view" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="651dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Discover"
+            android:textColor="@color/black"
+            android:textSize="22dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="210dp"
+            android:drawableLeft="@drawable/slider" />
+    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/card_frame"
+        android:background="@color/light_grey"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="70dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white"
+            android:layout_height="wrap_content"
+            android:background="@color/light_grey"
             android:orientation="vertical">
 
             <!-- top navigation -->
@@ -44,7 +65,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@color/white"
+                    android:background="@color/light_grey"
                     app:rotation_degrees="15.5"
                     tools:context=".MyActivity" />
 
@@ -52,48 +73,49 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:background="@color/light_grey"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="90dp"
+                    android:layout_height="95dp"
                     android:gravity="center"
                     android:orientation="horizontal">
 
 
                     <ImageButton
                         android:id="@+id/dislikebtn"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
-                        android:layout_marginRight="20dp"
+                        android:layout_marginRight="65dp"
                         android:background="@drawable/round_button_with_border"
                         android:elevation="7dp"
                         android:onClick="DislikeBtn"
                         android:padding="10dp"
-                        android:src="@drawable/ic_dislike" />
+                        android:src="@drawable/x" />
 
                     <ImageButton
                         android:id="@+id/commentbtn"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
                         android:layout_alignParentTop="true"
                         android:layout_centerHorizontal="true"
                         android:layout_gravity="center"
-                        android:layout_marginRight="20dp"
+                        android:layout_marginRight="65dp"
                         android:background="@drawable/round_button_with_border"
                         android:elevation="7dp"
                         android:padding="10dp"
-                        android:src="@drawable/ic_comment" />
+                        android:src="@drawable/undo" />
 
 
                     <ImageButton
                         android:id="@+id/likebtn"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
@@ -101,12 +123,11 @@
                         android:elevation="7dp"
                         android:onClick="LikeBtn"
                         android:padding="10dp"
-                        android:src="@drawable/ic_like1" />
-
-
+                        android:src="@drawable/heart_33" />
                 </LinearLayout>
-
             </LinearLayout>
+            <include layout="@layout/layout_top_navigation_view" />
+
         </LinearLayout>
     </FrameLayout>
 
