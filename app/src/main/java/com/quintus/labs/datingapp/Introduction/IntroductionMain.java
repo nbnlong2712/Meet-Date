@@ -52,10 +52,11 @@ public class IntroductionMain extends AppCompatActivity {
         mProfileHelper = new DbProfileHelper(mContext);
         mProfileHelper.getWritableDatabase();
 
-        PreferenceUtils utils = new PreferenceUtils();
-        if (utils.getEmail(this) != "" ){
-            Intent intent = new Intent(IntroductionMain.this, MainActivity.class);
-            startActivity(intent);
+        if (PreferenceUtils.getEmail(this)!=null){
+            if (!PreferenceUtils.getEmail(this).equals("")) {
+                Intent intent = new Intent(IntroductionMain.this, MainActivity.class);
+                startActivity(intent);
+            }
         }
 
         signupButton = findViewById(R.id.signup_button);
