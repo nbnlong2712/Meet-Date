@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
+import com.quintus.labs.datingapp.Introduction.IntroductionMain;
 import com.quintus.labs.datingapp.Profile.Profile_Activity;
 import com.quintus.labs.datingapp.R;
 import com.quintus.labs.datingapp.Utils.CalculateAge;
@@ -54,6 +55,9 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Intent i = new Intent(MainActivity.this, IntroductionMain.class);
+        startActivity(i);
 
         mMachedHelper=new DbMatchedHelper(mContext);
         Intent intent = getIntent();
@@ -234,6 +238,11 @@ public class MainActivity extends Activity {
         ArrayList<Cards > listcard=new ArrayList<>();
         String mail = PreferenceUtils.getEmail(mContext);
         SQLiteDatabase db = openOrCreateDatabase("Setting.db", Context.MODE_PRIVATE, null);
+
+        if(mail.isEmpty() || mail == null){
+            mail = "long@gmail.com";
+        }
+
         Cursor cursor = db.rawQuery("select * from Setting where email_s = ?", new String[]{mail});
         cursor.moveToFirst();
 
