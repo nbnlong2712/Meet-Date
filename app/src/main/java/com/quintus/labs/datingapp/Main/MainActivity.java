@@ -29,7 +29,10 @@ import com.quintus.labs.datingapp.Utils.PreferenceUtils;
 import com.quintus.labs.datingapp.Utils.PulsatorLayout;
 import com.quintus.labs.datingapp.Utils.TopNavigationViewHelper;
 import com.quintus.labs.datingapp.Utils.User;
+import com.quintus.labs.datingapp.database.DbAccountHelper;
 import com.quintus.labs.datingapp.database.DbMatchedHelper;
+import com.quintus.labs.datingapp.database.DbProfileHelper;
+import com.quintus.labs.datingapp.database.DbSettingHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +51,9 @@ public class MainActivity extends Activity {
     private PhotoAdapter arrayAdapter;
     public User singleUser;
     private DbMatchedHelper mMachedHelper;
-
+    private DbSettingHelper mSettingHelper;
+    private DbProfileHelper mProfileHelper;
+    private DbAccountHelper mAccountHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +61,18 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         mMachedHelper=new DbMatchedHelper(mContext);
+        mMachedHelper.getWritableDatabase();
+
+        mAccountHelper = new DbAccountHelper(mContext);
+        mAccountHelper.getWritableDatabase();
+
+        mSettingHelper = new DbSettingHelper(mContext);
+        mSettingHelper.getWritableDatabase();
+
+        mProfileHelper = new DbProfileHelper(mContext);
+        mProfileHelper.getWritableDatabase();
+
+
         Intent intent = getIntent();
         singleUser = (User) intent.getSerializableExtra("classUser");
 

@@ -41,8 +41,10 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         mEmail = findViewById(R.id.input_email);
         mPassword = findViewById(R.id.input_password);
+
         mContext = Login.this;
         mAccountHelper = new DbAccountHelper(mContext);
+
 
         mUser = new User("", "", "",
                 "", "", "", false, false,

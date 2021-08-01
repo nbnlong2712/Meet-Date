@@ -51,6 +51,7 @@ public class RegisterBasicInfo extends AppCompatActivity {
 
         mProfileHelper = new DbProfileHelper(mContext);
         mProfileHelper.getWritableDatabase();
+
         matchedHelper=new DbMatchedHelper(mContext);
         matchedHelper.getWritableDatabase();
 
