@@ -8,10 +8,12 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
+
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,6 +24,7 @@ import android.widget.Toast;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
+import com.quintus.labs.datingapp.Introduction.IntroductionMain;
 import com.quintus.labs.datingapp.Profile.Profile_Activity;
 import com.quintus.labs.datingapp.R;
 import com.quintus.labs.datingapp.Utils.CalculateAge;
@@ -60,7 +63,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mMachedHelper=new DbMatchedHelper(mContext);
+        mMachedHelper = new DbMatchedHelper(mContext);
         mMachedHelper.getWritableDatabase();
 
         mAccountHelper = new DbAccountHelper(mContext);
@@ -88,8 +91,8 @@ public class MainActivity extends Activity {
         setupTopNavigationView();
 
         rowItems = new ArrayList<Cards>();
-        ArrayList<Cards> c=new ArrayList<>();
-        c=loadEmailCard();
+        ArrayList<Cards> c = new ArrayList<>();
+        c = loadEmailCard();
         rowItems.addAll(c);
         arrayAdapter = new PhotoAdapter(this, R.layout.item, rowItems);
         checkRowItem();
@@ -163,10 +166,10 @@ public class MainActivity extends Activity {
 
                 String userId = obj.getUserId();
                 String mail = PreferenceUtils.getEmail(mContext);
-               if(  mMachedHelper.insertData(mail, userId))
-               {
-                   Toast.makeText(mContext, "Insert", Toast.LENGTH_LONG);
-               };
+                if (mMachedHelper.insertData(mail, userId)) {
+                    Toast.makeText(mContext, "Insert", Toast.LENGTH_LONG);
+                }
+                ;
 
                 //check matches
                 checkRowItem();
@@ -192,10 +195,10 @@ public class MainActivity extends Activity {
         flingContainer.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
             @Override
             public void onItemClicked(int itemPosition, Object dataObject) {
-                Cards  cards= (Cards) dataObject;
+                Cards cards = (Cards) dataObject;
                 Intent intent = new Intent(mContext, ProfileCheckinMain.class);
                 intent.putExtra("name", cards.getName());
-                intent.putExtra(  "age" , String.valueOf(cards.getAge()));
+                intent.putExtra("age", String.valueOf(cards.getAge()));
                 intent.putExtra("photo", cards.getProfileImageUrl());
                 intent.putExtra("bio", cards.getBio());
                 intent.putExtra("interest", cards.getInterest());
@@ -230,10 +233,10 @@ public class MainActivity extends Activity {
         if (rowItems.size() != 0) {
             Cards card_item = rowItems.get(0);
             String mail = PreferenceUtils.getEmail(mContext);
-            if(  mMachedHelper.insertData(mail, card_item.getUserId()))
-            {
+            if (mMachedHelper.insertData(mail, card_item.getUserId())) {
                 Toast.makeText(mContext, "Insert", Toast.LENGTH_LONG);
-            };
+            }
+            ;
             //check matches
 
             rowItems.remove(0);
@@ -246,43 +249,46 @@ public class MainActivity extends Activity {
         }
     }
 
-    public ArrayList<Cards> loadEmailCard()
-    {
-        ArrayList<Cards > listcard=new ArrayList<>();
+    public ArrayList<Cards> loadEmailCard() {
+        ArrayList<Cards> listcard = new ArrayList<>();
         String mail = PreferenceUtils.getEmail(mContext);
         SQLiteDatabase db = openOrCreateDatabase("Setting.db", Context.MODE_PRIVATE, null);
+        if(mail.equals(null) || mail.isEmpty())
+        {
+            Intent i = new Intent(MainActivity.this, IntroductionMain.class);
+            startActivity(i);
+        }
         Cursor cursor = db.rawQuery("select * from Setting where email_s = ?", new String[]{mail});
         cursor.moveToFirst();
 
-       String gender =cursor.getString(1);
-       String agemin=cursor.getString(3);
-       String agemax=cursor.getString(4);
+        String gender = cursor.getString(1);
+        String agemin = cursor.getString(3);
+        String agemax = cursor.getString(4);
 
         cursor.close();
 
         SQLiteDatabase db1 = openOrCreateDatabase("Account.db", Context.MODE_PRIVATE, null);
-        Cursor cursor1 = db1.rawQuery("select * from Account where email!=? ",new String[]{mail});
+        Cursor cursor1 = db1.rawQuery("select * from Account where email!=? ", new String[]{mail});
         SQLiteDatabase db2 = openOrCreateDatabase("Profile.db", Context.MODE_PRIVATE, null);
-        while (cursor1.moveToNext())
-        {
-           String age= cursor1.getString(3);
-           if( age!=null) {
-               String mail_=cursor1.getString(0);
-               String name = cursor1.getString(1);
-               CalculateAge cal = new CalculateAge(age);
-               int age_ = cal.getAge();
-               String gender_ = cursor1.getString(5);
+        while (cursor1.moveToNext()) {
+            String age = cursor1.getString(3);
+            if (age != null) {
+                String mail_ = cursor1.getString(0);
+                String name = cursor1.getString(1);
+                CalculateAge cal = new CalculateAge(age);
+                int age_ = cal.getAge();
+                String gender_ = cursor1.getString(5);
 
-               if (age_ >= Integer.parseInt(agemin) && age_ <= Integer.parseInt(agemax) && gender_.equals(gender) && mMachedHelper.checkEmail(mail, mail_) && mMachedHelper.checkEmail(mail_, mail)) {
-                   Cursor cursor2 = db2.rawQuery("select * from Profile where email_p = ?", new String[]{mail_});
-                   cursor2.moveToFirst();
-                   String describe=cursor2.getString(7);
-                   String path=cursor2.getString(1);
-                   String interest=cursor2.getString(11);
-                   Cards cards = new Cards(mail_, name, age_, path, describe, interest, 800);
-                   listcard.add(cards);
-               }
-           }
+                if (age_ >= Integer.parseInt(agemin) && age_ <= Integer.parseInt(agemax) && gender_.equals(gender) && mMachedHelper.checkEmail(mail, mail_) && mMachedHelper.checkEmail(mail_, mail)) {
+                    Cursor cursor2 = db2.rawQuery("select * from Profile where email_p = ?", new String[]{mail_});
+                    cursor2.moveToFirst();
+                    String describe = cursor2.getString(7);
+                    String path = cursor2.getString(1);
+                    String interest = cursor2.getString(11);
+                    Cards cards = new Cards(mail_, name, age_, path, describe, interest, 800);
+                    listcard.add(cards);
+                }
+            }
 
         }
         return listcard;
@@ -299,6 +305,7 @@ public class MainActivity extends Activity {
         MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
         menuItem.setChecked(true);
     }
+
     @Override
     public void onBackPressed() {
     }
