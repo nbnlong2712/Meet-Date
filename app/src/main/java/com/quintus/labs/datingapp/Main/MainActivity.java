@@ -81,6 +81,7 @@ public class MainActivity extends Activity {
 
         cardFrame = findViewById(R.id.card_frame);
         moreFrame = findViewById(R.id.more_frame);
+
         // start pulsator
         PulsatorLayout mPulsator = findViewById(R.id.pulsator);
         mPulsator.start();
