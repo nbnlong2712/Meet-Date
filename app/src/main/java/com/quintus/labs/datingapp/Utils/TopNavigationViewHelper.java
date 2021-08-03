@@ -34,29 +34,30 @@ public class TopNavigationViewHelper {
                     case R.id.ic_profile:
                         Intent intent2 = new Intent(context, Profile_Activity.class);
                         context.startActivity(intent2);
-                        item.setChecked(true);
+
                         break;
 
                     case R.id.ic_main:
                         Intent intent1 = new Intent(context, MainActivity.class);
                         context.startActivity(intent1);
-                        item.setChecked(true);
+
                         break;
 
                     case R.id.ic_matched:
                         Intent intent3 = new Intent(context, Matched_Activity.class);
                         context.startActivity(intent3);
-                        item.setChecked(true);
+
                         break;
                     case R.id.ic_like:
                     case R.id.ic_search:
                         //do nothing
-                        item.setChecked(true);
+
                         break;
 
 
                 }
 
+                item.setChecked(true);
                 return true;
             }
         });

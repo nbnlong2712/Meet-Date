@@ -33,23 +33,21 @@
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center"
                 android:layout_margin="20dp"
-                android:layout_marginBottom="30dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="50dp"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/logo" />
+
 
                 <com.quintus.labs.datingapp.customfonts.MyTextView_GreatVibes_Regular
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginLeft="40dp"
-                    android:text="Love Dating"
-                    android:textColor="#ff0b00"
-                    android:textSize="30dp" />
+                    android:layout_marginBottom="5dp"
+                    android:text="Meet &amp; Date"
+                    android:textColor="#ff4081"
+                    android:textSize="40dp" />
 
             </RelativeLayout>
 
@@ -69,7 +67,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="40dp"
                     android:layout_marginBottom="20dp"
-                    android:text="Hey, lets get started!!!"
+                    android:text="Hey, lets get started!"
                     android:textColor="#747474"
                     android:textSize="24sp"
                     android:textStyle="bold" />
@@ -86,7 +84,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_focused_bg"
-                        android:hint="entry your Email"
+                        android:hint="Email"
                         android:inputType="textEmailAddress"
                         android:padding="15dp" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -103,7 +101,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_focused_bg"
-                        android:hint="enter your username "
+                        android:hint="Username"
                         android:inputType="textEmailAddress"
                         android:padding="15dp" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -121,7 +119,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_focused_bg"
-                        android:hint="enter your Password"
+                        android:hint="Password"
                         android:inputType="textPassword"
                         android:padding="15dp" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -133,7 +131,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
                     android:layout_marginBottom="25dp"
-                    android:background="@color/colorPrimary"
+                    android:background="#ff4081"
+                    android:backgroundTint="#ff4081"
                     android:padding="12dp"
                     android:text="Continue"
                     android:textColor="@color/white"
@@ -149,7 +148,8 @@
                 android:layout_centerHorizontal="true"
                 android:onClick="onLoginClicked"
                 android:padding="15dp"
-                android:text="existing User? Please Login" />
+                android:textColor="@color/transparentPink"
+                android:text="Already have an account? Login" />
 
         </RelativeLayout>
     </ScrollView>
