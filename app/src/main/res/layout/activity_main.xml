@@ -42,17 +42,20 @@
         android:background="@color/light_grey"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="70dp">
+        android:layout_marginTop="70dp"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="@color/light_grey"
+            android:gravity="bottom"
             android:orientation="vertical">
 
             <!-- top navigation -->
 
             <LinearLayout
+                android:id="@+id/card_zone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -60,7 +63,8 @@
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/rounded_corner_layout"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                >
 
                 <com.lorentzos.flingswipe.SwipeFlingAdapterView
                     android:id="@+id/frame"
@@ -74,10 +78,12 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btn_zone"
                 android:layout_width="match_parent"
                 android:background="@color/light_grey"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                >
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -128,7 +134,21 @@
                         android:src="@drawable/ic_md_acpt_heart" />
                 </LinearLayout>
             </LinearLayout>
-            <include layout="@layout/layout_top_navigation_view" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:gravity="bottom">
+                <include
+                    layout="@layout/layout_top_navigation_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/navigation"
+                    android:layout_gravity="bottom"
+                    />
+            </LinearLayout>
 
         </LinearLayout>
     </FrameLayout>
@@ -138,18 +158,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="70dp"
+        android:layout_marginBottom="50dp"
         android:visibility="gone">
 
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
 
             <com.quintus.labs.datingapp.Utils.PulsatorLayout
                 android:id="@+id/pulsator"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="4"
                 app:pulse_color="@color/colorAccent"
                 app:pulse_count="3"
                 app:pulse_duration="8000"
@@ -162,13 +185,21 @@
                     android:layout_width="160dp"
                     android:layout_height="160dp"
                     android:layout_centerInParent="true"
-                    android:src="@drawable/monkey"
+                    android:src="@drawable/ic_md_location"
                     app:civ_border_color="@color/transparentPink"
-                    app:civ_border_width="1dp" />
-
+                    app:civ_border_width="0dp" />
             </com.quintus.labs.datingapp.Utils.PulsatorLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:text="Finding people near you" />
 
-        </RelativeLayout>
+        </LinearLayout>
     </FrameLayout>
+
+
 
 </RelativeLayout>
