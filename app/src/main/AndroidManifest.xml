@@ -47,7 +47,8 @@
         <activity android:name=".Login.RegisterHobby" />
         <activity android:name=".Profile.SettingsActivity" />
         <activity android:name=".Main.BtnLikeActivity" />
-        <activity android:name=".Main.BtnDislikeActivity"></activity>
+        <activity android:name=".Main.BtnDislikeActivity"/>
+        <activity android:name=".Chat.MessageActivity"/>
     </application>
 
 </manifest>
