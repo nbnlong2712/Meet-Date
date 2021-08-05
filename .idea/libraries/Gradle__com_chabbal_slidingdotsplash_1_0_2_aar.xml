@@ -1,21 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.chabbal:slidingdotsplash:1.0.2@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/064875be051f763ef45e5b7f71d4edc5/jetified-slidingdotsplash-1.0.2/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/064875be051f763ef45e5b7f71d4edc5/jetified-slidingdotsplash-1.0.2/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/064875be051f763ef45e5b7f71d4edc5/jetified-slidingdotsplash-1.0.2/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b512a5459d55ec9b1aadb8d86af4e3a6/jetified-slidingdotsplash-1.0.2/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b512a5459d55ec9b1aadb8d86af4e3a6/jetified-slidingdotsplash-1.0.2/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b512a5459d55ec9b1aadb8d86af4e3a6/jetified-slidingdotsplash-1.0.2/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5f1616b5db4c937e1a92955ab152592e/jetified-slidingdotsplash-1.0.2/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5f1616b5db4c937e1a92955ab152592e/jetified-slidingdotsplash-1.0.2/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5f1616b5db4c937e1a92955ab152592e/jetified-slidingdotsplash-1.0.2/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/458fbc515b7601fdb3633f9520711f24/jetified-slidingdotsplash-1.0.2/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/458fbc515b7601fdb3633f9520711f24/jetified-slidingdotsplash-1.0.2/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/458fbc515b7601fdb3633f9520711f24/jetified-slidingdotsplash-1.0.2/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0102a6bd35cb5524a1d0c9e13fc7a863/jetified-slidingdotsplash-1.0.2/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0102a6bd35cb5524a1d0c9e13fc7a863/jetified-slidingdotsplash-1.0.2/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0102a6bd35cb5524a1d0c9e13fc7a863/jetified-slidingdotsplash-1.0.2/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2b2adcaa1c51cbfb2d7d3f35b983a941/jetified-slidingdotsplash-1.0.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2b2adcaa1c51cbfb2d7d3f35b983a941/jetified-slidingdotsplash-1.0.2/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2b2adcaa1c51cbfb2d7d3f35b983a941/jetified-slidingdotsplash-1.0.2/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.chabbal/slidingdotsplash/1.0.2/977b2ce0c9cc55aa53551da5e86aea7295e1e9ac/slidingdotsplash-1.0.2-javadoc.jar!/" />

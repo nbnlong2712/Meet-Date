@@ -7,13 +7,12 @@
     -->
 <resources>
     <color name="colorPrimary">#d13135</color>
-    <color name="colorPrimaryDark">#d13135</color>
+    <color name="colorPrimaryDark">#ffffff</color>
     <color name="colorAccent">#D81B60</color>
 
     <color name="transparentPink">#99FF4081</color>
-    <color name="theme_v2">
-
-    </color>
+    <color name="theme_v2"></color>
+    <color name="hotpink">#FF69B4</color>
     <color name="grey">#bfbfbf</color>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
