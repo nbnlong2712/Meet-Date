@@ -19,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -48,6 +49,7 @@ public class MainActivity extends Activity {
     ListView listView;
     List<Cards> rowItems;
     FrameLayout cardFrame, moreFrame;
+    LinearLayout cardZone, btnZone;
     private Context mContext = MainActivity.this;
     private NotificationHelper mNotificationHelper;
     private Cards cards_data[];
@@ -62,6 +64,15 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+       /* View decorView = getWindow().getDecorView();
+// Hide both the navigation bar and the status bar.
+// SYSTEM_UI_FLAG_FULLSCREEN is only available on Android 4.1 and higher, but as
+// a general rule, you should design your app to hide the status bar whenever you
+// hide the navigation bar.
+        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);*/
 
         mMachedHelper = new DbMatchedHelper(mContext);
         mMachedHelper.getWritableDatabase();
@@ -80,6 +91,8 @@ public class MainActivity extends Activity {
         singleUser = (User) intent.getSerializableExtra("classUser");
 
         cardFrame = findViewById(R.id.card_frame);
+        cardZone = findViewById(R.id.card_zone);
+        btnZone = findViewById(R.id.btn_zone);
         moreFrame = findViewById(R.id.more_frame);
 
         // start pulsator
@@ -102,7 +115,9 @@ public class MainActivity extends Activity {
     private void checkRowItem() {
         if (rowItems.isEmpty()) {
             moreFrame.setVisibility(View.VISIBLE);
-            cardFrame.setVisibility(View.GONE);
+//            cardFrame.setVisibility(View.GONE);
+            cardZone.setVisibility(View.GONE);
+            btnZone.setVisibility(View.GONE);
         }
     }
 
@@ -170,10 +185,8 @@ public class MainActivity extends Activity {
                     Toast.makeText(mContext, "Insert", Toast.LENGTH_LONG);
                 }
                 ;
-
                 //check matches
                 checkRowItem();
-
             }
 
             @Override
@@ -207,7 +220,6 @@ public class MainActivity extends Activity {
             }
         });
     }
-
 
     public void sendNotification() {
         NotificationCompat.Builder nb = mNotificationHelper.getChannel1Notification(mContext.getString(R.string.app_name), mContext.getString(R.string.match_notification));
@@ -292,8 +304,6 @@ public class MainActivity extends Activity {
 
         }
         return listcard;
-
-
     }
 
     private void setupTopNavigationView() {

@@ -11,6 +11,7 @@
                   <entry key="vectorAssetStep">
                     <value>
                       <PersistentState>
+<<<<<<< HEAD
                         <option name="children">
                           <map>
                             <entry key="clipartAsset">
@@ -30,6 +31,13 @@
                           <map>
                             <entry key="outputName" value="ic_baseline_image_24" />
                             <entry key="sourceFile" value="C:\Users\TGDD\Desktop\Meet-Date" />
+=======
+                        <option name="values">
+                          <map>
+                            <entry key="assetSourceType" value="FILE" />
+                            <entry key="outputName" value="ic_md_location" />
+                            <entry key="sourceFile" value="D:\University\Year3-Sem03\UI Design\Project\icon\ic_md_location.svg" />
+>>>>>>> 3aeac2c574f448f692fb4ccb54e4745ed14aeca0
                           </map>
                         </option>
                       </PersistentState>

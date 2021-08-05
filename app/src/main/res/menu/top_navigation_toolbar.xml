@@ -1,38 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-   * DatingApp
-    * https://github.com/quintuslabs/DatingApp
-    * Created on 25-sept-2018.
-    * Created by : Santosh Kumar Dash:- http://santoshdash.epizy.com
-    -->
+
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:id="@+id/ic_profile"
         android:icon="@drawable/profile_select"
-        android:title="">
+        android:title="Profile">
     </item>
 
     <item
         android:id="@+id/ic_main"
         android:icon="@drawable/home_select"
-        android:title="">
+        android:title="Home"
+        android:checked="true">
     </item>
 
     <item
         android:id="@+id/ic_matched"
         android:icon="@drawable/chat_select"
-        android:title="">
+        android:title="Chat">
     </item>
+
+    <item
+        android:id="@+id/ic_search"
+        android:icon="@drawable/search_select"
+        android:title="Search">
+    </item>
+
     <item
         android:id="@+id/ic_like"
         android:icon="@drawable/heart_select"
-        android:title="">
+        android:title="Liked">
     </item>
-    <item
-        android:id="@+id/ic_search"
-        android:icon="@drawable/ic_search"
-        android:title="">
-    </item>
-
 </menu>
