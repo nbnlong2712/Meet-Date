@@ -20,8 +20,9 @@
     <string name="permission_camera_rationale">Request for camera permission</string>
     <string name="permission_contacts_rationale">GALLERY PERMISSION</string>
     <string name="permision_available_camera">camera available</string>
+  <string name="info_avatar">Avatar</string>
 
-    <!-- introduction pictures-->
+  <!-- introduction pictures-->
     <integer-array name="img_id_arr">
         <item>@drawable/img1</item>
         <item>@drawable/img2</item>

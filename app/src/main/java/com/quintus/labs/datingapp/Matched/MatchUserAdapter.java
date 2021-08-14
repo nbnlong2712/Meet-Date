@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,17 +48,14 @@ public class MatchUserAdapter extends RecyclerView.Adapter<MatchUserAdapter.MyVi
         if (users.getProfileImageUrl() != null) {
             Glide.with(mActivity).load(users.getProfileImageUrl()).into(holder.imageView);
         }
-        holder.name.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(mActivity, MessageActivity.class);
-                i.putExtra("name", users.getName());
-                if(users.getProfileImageUrl() != null)
-                    i.putExtra("avatar", users.getProfileImageUrl());
-                else
-                    i.putExtra("avatar", "NO");
-                mActivity.startActivity(i);
-            }
+        holder.name.setOnClickListener(v -> {
+            Intent i = new Intent(mActivity, MessageActivity.class);
+            i.putExtra("name", users.getName());
+            if(users.getProfileImageUrl() != null)
+                i.putExtra("avatar", users.getProfileImageUrl());
+            else
+                i.putExtra("avatar", "NO");
+            mActivity.startActivity(i);
         });
     }
 

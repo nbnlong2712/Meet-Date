@@ -53,11 +53,11 @@ public class MessageActivity extends AppCompatActivity {
             mGirlAvt = info.getStringExtra("avatar");
         }
 
-        edtMessage = (EditText) findViewById(R.id.edt_message);
-        btnSend = (ImageButton) findViewById(R.id.btn_send);
-        mImageView = (CircleImageView) findViewById(R.id.img_avatar);
-        mTvName = (TextView) findViewById(R.id.tv_name);
-        btnBack = (ImageButton) findViewById(R.id.btn_back);
+        edtMessage = findViewById(R.id.edt_message);
+        btnSend = findViewById(R.id.btn_send);
+        mImageView = findViewById(R.id.img_avatar);
+        mTvName = findViewById(R.id.tv_name);
+        btnBack = findViewById(R.id.btn_back);
 
         mTvName.setText(mGirlName);
         if(mGirlAvt.equals("NO"))

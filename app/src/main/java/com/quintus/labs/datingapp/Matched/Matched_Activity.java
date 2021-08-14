@@ -47,13 +47,36 @@ public class Matched_Activity extends AppCompatActivity {
         setupTopNavigationView();
         searchFunc();
 
-
+        // Data containers
         recyclerView = findViewById(R.id.active_recycler_view);
         mRecyclerView = findViewById(R.id.matche_recycler_view);
 
-        adapter = new ActiveUserAdapter(usersList, getApplicationContext());
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
-        recyclerView.setLayoutManager(mLayoutManager);
+        // Data
+        final Users sample = new Users("1234", "Cristine", 24,
+                "https://i.imgur.com/ygDDCfq.jpg",
+                "Lmao", "Music", 5);
+        usersList = new ArrayList<Users>() {
+            {
+                add(sample);
+                add(sample);
+                add(sample);
+                add(sample);
+                add(sample);
+                add(sample);
+                add(sample);
+                add(sample);
+            }
+        };
+        matchList = new ArrayList<Users>() {
+            {
+                add(sample);
+                add(sample);
+                add(sample);
+                add(sample);
+            }
+        };
+
+        adapter = new ActiveUserAdapter(usersList, this);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
         prepareActiveData();
@@ -63,23 +86,18 @@ public class Matched_Activity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager1);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(mAdapter);
-
         prepareMatchData();
 
 
     }
 
     private void prepareActiveData() {
-
         usersList.addAll(loadUsersMatched());
-
         adapter.notifyDataSetChanged();
     }
 
     private void prepareMatchData() {
-
         matchList.addAll(loadUsersMatched());
-
         mAdapter.notifyDataSetChanged();
     }
 
@@ -102,21 +120,21 @@ public class Matched_Activity extends AppCompatActivity {
 
         SQLiteDatabase db1 = openOrCreateDatabase("Account.db", Context.MODE_PRIVATE, null);
         SQLiteDatabase db2 = openOrCreateDatabase("Profile.db", Context.MODE_PRIVATE, null);
-        for (int i = 0; i < listEmail.size(); i++) {
-            Cursor cursor1 = db1.rawQuery("select * from Account where email = ?", new String[]{listEmail.get(i)});
-            Cursor cursor2 = db2.rawQuery("select * from Profile where email_p = ?", new String[]{listEmail.get(i)});
+        for (String s : listEmail) {
+            Cursor cursor1 = db1.rawQuery("select * from Account where email = ?", new String[]{s});
+            Cursor cursor2 = db2.rawQuery("select * from Profile where email_p = ?", new String[]{s});
 
             cursor1.moveToFirst();
             cursor2.moveToFirst();
             String age = cursor1.getString(3);
             String name = cursor1.getString(1);
             String decribe = cursor2.getString(7);
-            String path=cursor2.getString(1);
-            String interest=cursor2.getString(11);
+            String path = cursor2.getString(1);
+            String interest = cursor2.getString(11);
             CalculateAge cal = new CalculateAge(age);
             int age_ = cal.getAge();
             String gender_ = cursor1.getString(5);
-            Users users = new Users(listEmail.get(i), name, age_, path, decribe, interest, 200);
+            Users users = new Users(s, name, age_, path, decribe, interest, 200);
             listMatched.add(users);
         }
         return listMatched;
