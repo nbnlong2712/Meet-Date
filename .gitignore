@@ -53,6 +53,8 @@ $RECYCLE.BIN/
 *.ori
 *.orig
 *.tmp
+*.bin
+*.lock
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
